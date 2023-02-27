@@ -13,9 +13,9 @@ TvSerie:
         <h1>TvSerier</h1>
         <ul class="tvserie-overview-list">
             <li v-for="tvserie in tvserier">
-                <a :href="`/tvserie/${tvserie.tittel}/sesong/1`" class="link-to-tvserie-details">
+                <a :href="`/tvserie/${tvserie.title}/sesong/1`" class="link-to-tvserie-details">
                     <div class="single-tvserie-container" >
-                      <h2 v-if="tvserie.tittel">{{tvserie.tittel}}</h2>
+                      <h2 v-if="tvserie.title">{{tvserie.title}}</h2>
                       <h2 v-else class="error">TvSerie må ha instansvariabelen "tittel"</h2>
 
                       <img v-if="tvserie?.bildeUrl" class="cover-image" v-bind:src="tvserie.bildeUrl">

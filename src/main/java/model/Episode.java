@@ -9,9 +9,10 @@ package model;
 4: toString method: https://www.youtube.com/watch?v=GvbdMwfjB98
  */
 
-import org.jetbrains.annotations.NotNull;
+
 
 import java.time.LocalDate;
+
 
 public class    Episode extends Produksjon implements Comparable<Episode>{
     //instance variables
@@ -47,6 +48,11 @@ public class    Episode extends Produksjon implements Comparable<Episode>{
 
     }
 
+    //oblig4 - compareTo()
+    @Override
+    public int compareTo(Episode ep) {
+        return (int) (this.getSpilletid() - ep.getSpilletid());
+    }
 
     //toString() is a java inbuilt method in classes that can be overridden. Objects inherit this method from classes. By default, this method shows the memory address/reference of the class or the object depending on where the method called from.
     //toString method returns a string datatype as the name implies
@@ -68,8 +74,4 @@ public class    Episode extends Produksjon implements Comparable<Episode>{
         this.sesongNr = sesongNr;
     }
 
-    @Override
-    public int compareTo(Episode ep) {
-        return (int) (this.getSpilletid() - ep.getSpilletid());
-    }
 }

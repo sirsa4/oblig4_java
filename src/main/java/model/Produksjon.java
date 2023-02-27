@@ -3,6 +3,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
+
+
 public abstract class Produksjon {
 
     //oppgave2.1 - move title and spilleTid from Episode class to abstract Produksjon class

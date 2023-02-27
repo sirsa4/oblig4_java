@@ -43,7 +43,7 @@ public class TvSerieDataRepository implements TvSerieRepository {
         //to get desired TVSerie, we can loop through the ArrayList<TVSerie> series
         for(TVSerie serie : series){
             //to get correct Tvserie, we can use if-statement to compare title of TVserie object with the string parameter in this method.
-            if(serie.gettTitle().equals(tvSerie)){
+            if(serie.getTitle().equals(tvSerie)){
                 //TVserie title which matches user input when the method is used is returned in end.
                 return serie;
             }

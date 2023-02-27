@@ -46,22 +46,7 @@ public class TVSerie implements Comparable<TVSerie> {
     //oblig 4: oppgave 2.2 - comparable
     @Override
     public int compareTo(TVSerie anotherTVSerie){
-
-        //compare number of seasons in TVSerie objects
-        int numberOfSeasons = Integer.compare(this.episoder.size(),anotherTVSerie.getEpisoder().size());
-        System.out.println("Antall episoder: "+this.episoder.size() + " - "+ anotherTVSerie.getEpisoder().size());
-
-
-        //if current TVserie is bigger
-        if(numberOfSeasons == 1){
-            return 1;
-            //if the other TVSerie is bigger
-        } else if(numberOfSeasons == -1){
-            return -1;
-        } else {
-            //if they are both equal
-            return 0;
-        }
+        return this.episoder.size() - anotherTVSerie.episoder.size();
     }
 
 
@@ -124,7 +109,7 @@ public class TVSerie implements Comparable<TVSerie> {
     }
 
     //getter and setter methods
-    public String gettTitle(){
+    public String getTitle(){
         return this.title;
     }
     public void setTitle(String title){

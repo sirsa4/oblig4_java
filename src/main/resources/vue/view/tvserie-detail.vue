@@ -25,11 +25,11 @@ Episode:
       <img v-else class="cover-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Stranger_Things_Rasmiy_posteri.jpg/405px-Stranger_Things_Rasmiy_posteri.jpg">
 
 
-      <h1 v-if="tvserie.tittel">{{tvserie.tittel}}</h1>
+      <h1 v-if="tvserie.title">{{tvserie.title}}</h1>
       <h1 v-else class="error">TvSerie må ha get-metode for "tittel"</h1>
       <p v-if="tvserie.beskrivelse">{{tvserie.beskrivelse}}.</p>
       <p v-else>TvSerie må ha get-metode for "beskrivelse".</p>
-      <p>{{tvserie.tittel}} har {{episoder.length}} episoder i sesong {{sesongNr}}.</p>
+      <p>{{tvserie.title}} har {{episoder.length}} episoder i sesong {{sesongNr}}.</p>
 
     </div>
 
@@ -41,7 +41,7 @@ Episode:
             <a v-if="nr == sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${nr}`" class="active">
               <li>Sesong {{nr}}</li>
             </a>
-            <a v-else :href="`/tvserie/${tvserie.tittel}/sesong/${nr}`">
+            <a v-else :href="`/tvserie/${tvserie.title}/sesong/${nr}`">
               <li>Sesong {{nr}}</li>
             </a>
 
@@ -50,26 +50,26 @@ Episode:
       </ul>
 
       <ul class="buttonList">
-        <div v-if="sortering=='episodenr'" class="active">   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${sesongNr}?sortering=episodenr`">Sorter episodenummer</a></li> </div>
-        <div v-else>   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${sesongNr}?sortering=episodenr`">Sorter episodenummer</a></li></div>
-        <div v-if="sortering=='tittel'" class="active">    <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${sesongNr}?sortering=tittel`">Sorter alfabetisk</a></li> </div>
-        <div v-else>    <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${sesongNr}?sortering=tittel`">Sorter alfabetisk</a></li> </div>
-        <div v-if="sortering=='spilletid'" class="active">   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${sesongNr}?sortering=spilletid`">Sorter på spilletid</a></li> </div>
-        <div v-else>   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${sesongNr}?sortering=spilletid`">Sorter på spilletid</a></li> </div>
+        <div v-if="sortering=='episodenr'" class="active">   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.title}/sesong/${sesongNr}?sortering=episodenr`">Sorter episodenummer</a></li> </div>
+        <div v-else>   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.title}/sesong/${sesongNr}?sortering=episodenr`">Sorter episodenummer</a></li></div>
+        <div v-if="sortering=='tittel'" class="active">    <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.title}/sesong/${sesongNr}?sortering=tittel`">Sorter alfabetisk</a></li> </div>
+        <div v-else>    <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.title}/sesong/${sesongNr}?sortering=tittel`">Sorter alfabetisk</a></li> </div>
+        <div v-if="sortering=='spilletid'" class="active">   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.title}/sesong/${sesongNr}?sortering=spilletid`">Sorter på spilletid</a></li> </div>
+        <div v-else>   <li><a v-if="sesongNr" :href="`/tvserie/${tvserie.title}/sesong/${sesongNr}?sortering=spilletid`">Sorter på spilletid</a></li> </div>
       </ul>
     </div>
 
     <h2>Episoder i sesong {{sesongNr}}</h2>
 
-    <div v-if="!episoder[0]?.tittel" class="error">Produksjon må ha get-metode for "tittel"</div>
-    <div v-if="!episoder[0]?.sesongNummer" class="error">Episode må ha get-metode for "sesongNummer"</div>
-    <div v-if="!episoder[0]?.episodeNummer" class="error">Episode må ha get-metode for "episodeNummer"</div>
+    <div v-if="!episoder[0]?.title" class="error">Produksjon må ha get-metode for "tittel"</div>
+    <div v-if="!episoder[0]?.sesongNr" class="error">Episode må ha get-metode for "sesongNummer"</div>
+    <div v-if="!episoder[0]?.sesongNr" class="error">Episode må ha get-metode for "episodeNummer"</div>
 
     <ul class="episode-overview-list">
       <li v-for="episode in episoder">
-        <a v-if="tvserie" class="link-to-episode-details" :href="`/tvserie/${tvserie.tittel}/sesong/${episode.sesongNummer}/episode/${episode.episodeNummer}`">
+        <a v-if="tvserie" class="link-to-episode-details" :href="`/tvserie/${tvserie.title}/sesong/${episode.sesongNr}/episode/${episode.episodeNr}`">
           <div class="single-episode-container">
-            <h1>E{{episode.episodeNummer}} - {{episode.tittel}}</h1>
+            <h1>E{{episode.episodeNr}} - {{episode.title}}</h1>
             <img v-if="episode.bildeUrl" class="list-image" v-bind:src="episode.bildeUrl">
             <img v-else class="list-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Stranger_Things_Rasmiy_posteri.jpg/405px-Stranger_Things_Rasmiy_posteri.jpg">
           </div>

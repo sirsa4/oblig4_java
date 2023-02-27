@@ -4,11 +4,7 @@ import data.TvSerieRepository;
 import model.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Random;
-
+import java.util.*;
 
 
 public class Main {
@@ -58,6 +54,7 @@ public class Main {
                 return ep1.compareTo(ep2);
             }
         });
+        Collections.sort(toBeSortedEpisodes);
         System.out.println(toBeSortedEpisodes);
 
 
