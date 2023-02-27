@@ -19,16 +19,16 @@ Episode:
 
 <template id="episode-detail">
     <div v-if="episode" class="detail-episode-container">
-        <div v-if="!episode.tittel" class="error">Produksjon må ha get-metode for "tittel"</div>
-        <div v-if="!episode.sesongNummer" class="error">Episode må ha get-metode for "sesongNummer"</div>
-        <div v-if="!episode.episodeNummer" class="error">Episode må ha get-metode for "episodeNummer"</div>
+        <div v-if="!episode.title" class="error">Produksjon må ha get-metode for "tittel"</div>
+        <div v-if="!episode.sesongNr" class="error">Episode må ha get-metode for "sesongNummer"</div>
+        <div v-if="!episode.episodeNr" class="error">Episode må ha get-metode for "episodeNummer"</div>
         <div v-if="!episode.spilletid" class="error">Produksjon må ha get-metode for "spilletid"</div>
         <div v-if="!episode.utgivelsesdato" class="error">Produksjon må ha get-metode for "utgivelsesdato"</div>
         <div v-if="!episode.beskrivelse" class="error">Produksjon må ha get-metode for "beskrivelse"</div>
         <div v-if="!episode.regissor" class="error">Produksjon må ha get-metode for "regissor"</div>
-        <div v-if="episode.regissor && !episode.regissor.fulltNavn" class="error">Person må ha get-metode for "fulltNavn"</div>
+        <div v-if="episode.regissor && !episode.regissor.fullName" class="error">Person må ha get-metode for "fulltNavn"</div>
 
-        <h1>S{{episode.sesongNummer}}E{{episode.episodeNummer}} - {{episode.tittel}}</h1>
+        <h1>S{{episode.sesongNr}}E{{episode.episodeNr}} - {{episode.title}}</h1>
         <img v-if="episode.bildeUrl" class="cover-image" v-bind:src="episode.bildeUrl">
         <img v-else class="cover-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Stranger_Things_Rasmiy_posteri.jpg/405px-Stranger_Things_Rasmiy_posteri.jpg">
         <br />

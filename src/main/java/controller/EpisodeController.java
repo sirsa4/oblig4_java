@@ -31,4 +31,24 @@ public class EpisodeController {
 
     }
 
+    //get single specific episode from a given season
+    public void getSingleEpisode(Context context){
+        //data that is pulled from pathPram() is similar to the method above this.
+        //TVSerie name from browser url
+        String serie = context.pathParam("tvserie-id");
+
+        //season number from url too
+        int seasonNumber = Integer.parseInt(context.pathParam("sesong-nr"));
+
+        //episode number from url
+        int episodeNumber = Integer.parseInt(context.pathParam("episode-nr"));
+
+        //use the method in TVSerieDataRepository class to get a single episode
+        Episode singleEpisode = episodeRepo.getEpisodeInSeason(serie,seasonNumber,episodeNumber);
+
+        //send JSON response to user which is matches the browser url
+        context.json(singleEpisode);
+
+    }
+
 }//end of class

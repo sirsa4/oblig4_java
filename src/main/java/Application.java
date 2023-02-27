@@ -36,6 +36,7 @@ public class Application {
         app.get("/tvserie", new VueComponent("tvserie-overview"));
 
         //this path retuns specific season number in specific TVSerie
+        //in oppgave 2.7 episodes path is working so Vue can fetch() episodes too correctly.
         app.get("/tvserie/{tvserie-id}/sesong/{sesong-nr}",new VueComponent("tvserie-detail"));
 
         //api paths. Front-end takes data from these paths
@@ -76,6 +77,19 @@ public class Application {
                 episodeController.getEpisodes(context);
             }
         });
+
+        //Path to get single specific episode
+        app.get("api/tvserie/{tvserie-id}/sesong/{sesong-nr}/episode/{episode-nr}", new Handler() {
+            @Override
+            public void handle(@NotNull Context context) throws Exception {
+
+                episodeController.getSingleEpisode(context);
+            }
+        });
+
+        //Vue path for single specific episode
+        //This path uses the API path above this.
+        app.get("tvserie/{tvserie-id}/sesong/{sesong-nr}/episode/{episode-nr}", new VueComponent("episode-detail"));
 
 
     }//end of main method
