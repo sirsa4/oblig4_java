@@ -58,4 +58,18 @@ public class TvSerieDataRepository implements TvSerieRepository {
     public ArrayList<TVSerie> getAllTVSerie() {
         return new ArrayList<>(series);
     }
+
+    //oppgave 2.7 - get all episodes in a given season
+    @Override
+    public ArrayList<Episode> getEpisodesInSeason(String tvserie,int season) {
+        //first get correct TVSerie using the getSingleTVSerie() method from oppgave 2.5
+        TVSerie correctSerie = getSingleTVSerie(tvserie);
+
+        //get episodes in season from the correctSerie
+        //hentEpisoderISesong() is a finished method from previous oblig which returns an ArrayList<Episodes> in a given season.
+        ArrayList<Episode> episodesInSeason = correctSerie.hentEpisoderISesong(season);
+
+        //finally return the correct TVserie and all it's episodes in correct season.
+        return episodesInSeason;
+    }
 }

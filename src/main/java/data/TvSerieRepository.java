@@ -1,5 +1,6 @@
 package data;
 
+import model.Episode;
 import model.TVSerie;
 
 import java.util.ArrayList;
@@ -11,4 +12,6 @@ public interface TvSerieRepository {
 
     //method to get all TVSerie objects
     ArrayList<TVSerie> getAllTVSerie();
+
+    ArrayList<Episode> getEpisodesInSeason(String tvserie,int season);
 }

@@ -1,3 +1,4 @@
+import controller.EpisodeController;
 import controller.TvSerieController;
 import data.TvSerieDataRepository;
 import io.javalin.Javalin;
@@ -57,6 +58,22 @@ public class Application {
             public void handle(@NotNull Context context) throws Exception {
 
                 controller.getTVSerie(context);
+            }
+        });
+
+        //oppgave 2.7
+
+        //get all episodes API path
+        //instance of TVserieDataRepo
+        TvSerieDataRepository episodesData = new TvSerieDataRepository();
+
+        //instance of EpisodeController which can use the TVSerieDatarepository object using the interface in controller class constructor
+        EpisodeController episodeController = new EpisodeController(episodesData);
+        app.get("/api/tvserie/{tvserie-id}/sesong/{sesong-id}", new Handler() {
+            @Override
+            public void handle(@NotNull Context context) throws Exception {
+
+                episodeController.getEpisodes(context);
             }
         });
 
