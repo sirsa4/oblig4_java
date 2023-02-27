@@ -1,4 +1,6 @@
 //model classes
+import data.TvSerieDataRepository;
+import data.TvSerieRepository;
 import model.*;
 
 import java.time.LocalDate;
@@ -10,7 +12,10 @@ import java.util.Random;
 
 
 public class Main {
+
+
     public static void main(String[] args) {
+
 
         //oppgave2.1
         System.out.println();
@@ -54,6 +59,8 @@ public class Main {
             }
         });
         System.out.println(toBeSortedEpisodes);
+
+
 
 
 
