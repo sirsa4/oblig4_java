@@ -19,33 +19,26 @@ public class    Episode extends Produksjon implements Comparable<Episode>{
     private int episodeNr;
     private int sesongNr;
 
-    //made spilletid a double datatype. Episodes dont end in full numbers always. 2 hours 20min and 45sec for example.
-
 
     //contructor with all instance variables
     public Episode(String title,int episodeNr, int sesongNr,double spilletid){
-        //oppgave2.1
-        //super() makes it possible to use the instance variables in the super class, Produksjon
-        //super() must be at top in constructor since the super class is run first in Java. So we get information from super class first so it can be used on this subclass
         super(title,spilletid);
         this.episodeNr = episodeNr;
         this.sesongNr = sesongNr;
 
 
     }
-    public Episode(int episodeNr, int sesongNr){
-        this.episodeNr = episodeNr;
-        this.sesongNr = sesongNr;
-    }
 
-    //Oblig3 - oppgave2.3 method overall to 2 new instance variables to constructor(beskrivelse and utgivelsesdato)
     public Episode(String title, int episodeNr, int sesongNr, double spilletid, String beskrivelse, LocalDate utgivelsesdato){
-        //Oblig3 - oppgave2.3
         super(title,spilletid,beskrivelse,utgivelsesdato);
         this.episodeNr = episodeNr;
         this.sesongNr = sesongNr;
-
-
+    }
+    //oblig 4: oppgave 2.8 - contructor overload where episode can have bildUrl
+    public Episode(String title, int episodeNr, int sesongNr, double spilletid, String beskrivelse, LocalDate utgivelsesdato,String bildeUrl){
+        super(title,spilletid,beskrivelse,utgivelsesdato,bildeUrl);
+        this.episodeNr = episodeNr;
+        this.sesongNr = sesongNr;
     }
 
     //oblig4 - compareTo()
@@ -54,8 +47,7 @@ public class    Episode extends Produksjon implements Comparable<Episode>{
         return (int) (this.getSpilletid() - ep.getSpilletid());
     }
 
-    //toString() is a java inbuilt method in classes that can be overridden. Objects inherit this method from classes. By default, this method shows the memory address/reference of the class or the object depending on where the method called from.
-    //toString method returns a string datatype as the name implies
+
     public String toString(){
         return "Episode number: "+this.episodeNr + " \""+this.getTitle() + "\" is from season "+this.sesongNr+" and lasts for "+this.getSpilletid()+" min.\n";
     }

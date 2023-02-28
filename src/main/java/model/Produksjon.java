@@ -8,40 +8,35 @@ import java.util.Arrays;
 
 public abstract class Produksjon {
 
-    //oppgave2.1 - move title and spilleTid from Episode class to abstract Produksjon class
     private String title;
     private double spilletid;
 
-    //oppgave2.2
+
     private String beskrivelse;
     private LocalDate utgivelsesdato;
 
-    //oppgave2.4 - add regissor instance variable to both Film and Episode classes
-    //Adding regissor to this super class which both Film and Episode extend is a good idea
-    //Reason is to avoid having to add regissor both classes manually and repeating process. Here we can do it at once.
     private Person regissor;
 
-    //oppgave2.5 - "rolle" Arraylist for which Episode and Film can hold people with different roles in their object instances
+
     private ArrayList<Rolle> roller = new ArrayList<>();
 
+    //oblig4: oppgave 2.8 - instance variable for images in Episode and Film objects
+    private String bildeUrl;
 
-    //oppgave2.1
+    //Empty constructor is needed for the constructor in Episode class which is missing spilletid instance variable
+    public Produksjon(){}
 
-    //constructor for this class has only two instance variables in oppgave2.1 so far
     public Produksjon(String title, double spilletid){
         this.title = title;
         this.spilletid = spilletid;
     }
 
-    //oppgave2.3
-    //method overall on constructor to make sure previous code in oppgave2.2 does not crash
     public Produksjon(String title, double spilletid,LocalDate utgivelsesdato){
         this.title = title;
         this.spilletid = spilletid;
         this.utgivelsesdato = utgivelsesdato;
     }
 
-    //oppgave2.3 constructor will 5 needed instance variables so far
     public Produksjon(String title, double spilletid,String beskrivelse,LocalDate utgivelsesdato){
         this.title = title;
         this.spilletid = spilletid;
@@ -49,8 +44,27 @@ public abstract class Produksjon {
         this.utgivelsesdato = utgivelsesdato;
     }
 
-    //Empty constructor is needed for the constructor in Episode class which is missing spilletid instance variable
-    public Produksjon(){}
+    //oblig 4: oppgave 2.8
+    public Produksjon(String title, double spilletid,String beskrivelse,LocalDate utgivelsesdato, String bildeUrl){
+        this.title = title;
+        this.spilletid = spilletid;
+        this.beskrivelse = beskrivelse;
+        this.utgivelsesdato = utgivelsesdato;
+        this.bildeUrl = bildeUrl;
+    }
+
+
+
+    //oblig4: oppgave 2.8 - getter and setter methods for bildeUrl instance variable
+
+
+    public String getBildeUrl() {
+        return bildeUrl;
+    }
+
+    public void setBildeUrl(String bildeUrl) {
+        this.bildeUrl = bildeUrl;
+    }
 
     //getter and setter for title and spilletid in oppgave2.1
     public String getTitle(){

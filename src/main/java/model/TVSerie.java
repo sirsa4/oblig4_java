@@ -28,12 +28,13 @@ public class TVSerie implements Comparable<TVSerie> {
     private LocalDate utgivelsesdato;
     ArrayList<Episode> episoder;
 
-    //oppgave2.5
-    //gjennomsnittligSpilletid initialiseres med 0 fra start og den blir oppdatert hver gang ny episode blir lagd til objekt av klassen.
     private double gjennomsnittligSpilletid = 0;
 
-    //oppgave2.7
+
     private int antallSesonger;
+
+    //oppgave 2.8 - instance which stores image url for TVSerie
+    private String bildeUrl;
 
     public TVSerie(String title, String beskrivelse,LocalDate utgivelsesdato){
         this.title = title;
@@ -42,6 +43,26 @@ public class TVSerie implements Comparable<TVSerie> {
         this.episoder = new ArrayList<>();
     }
 
+    //oblig4: oppgave 2.8 - constructor method overload which includes "bildeUrl" instance variable
+    //method overload is avoid objects from this class in other place is to break the program.
+    public TVSerie(String title, String beskrivelse,LocalDate utgivelsesdato,String bildeUrl){
+        this.title = title;
+        this.beskrivelse = beskrivelse;
+        this.utgivelsesdato = utgivelsesdato;
+        this.episoder = new ArrayList<>();
+        this.bildeUrl = bildeUrl;
+    }
+
+    //oblig 4: oppgave 2.8
+
+
+    public String getBildeUrl() {
+        return bildeUrl;
+    }
+
+    public void setBildeUrl(String bildeUrl) {
+        this.bildeUrl = bildeUrl;
+    }
 
     //oblig 4: oppgave 2.2 - comparable
     @Override
@@ -51,21 +72,17 @@ public class TVSerie implements Comparable<TVSerie> {
 
 
 
-    //oppgave2.7 - getter method for antallSesonger
+
     public int getAntallSesonger(){
         return this.antallSesonger;
     }
 
-    //oppgave2.5 - gjennomsnitt/average
 
-    //getter methode for gjennomsnittligSpilletid instance variable
     public double getGjennomsnittligSpilletid() {
         return gjennomsnittligSpilletid;
     }
 
-    //private calculate average/gjennomsnitt method
-    //This method is run everytime a new episode added to TVSerie.
-    //To add new episode, setter method leggTilEpisode() is used. So that means this method must execute/run in leggTilEpisode() method.
+
     private void oppdaterGjennomsnittligSpilletid(){
         //variable starting at 0 to store total spilletid
         double totalSpilleTid = 0;
@@ -78,8 +95,7 @@ public class TVSerie implements Comparable<TVSerie> {
         gjennomsnittligSpilletid = totalSpilleTid / episoder.size();
     }
 
-    //oppgave2_4: add a method which prints out all episodes in user specified season
-    //this is done with getter method that returns the array as said in oppgave text: public ArrayList<Episode> hentEpisoderISesong(int sesong)
+
     public ArrayList<Episode> hentEpisoderISesong(int sesong){
 
         //new ArrayList to hold the episodes from specified sesong
@@ -102,8 +118,7 @@ public class TVSerie implements Comparable<TVSerie> {
     //method end
     }
 
-    //toString() is a java inbuilt method in classes that can be overridden. Objects inherit this method from classes. By default, this method shows the memory address/reference of the class or the object depending on where the method called from.
-    //toString method returns a string datatype as the name implies
+
     public String toString(){
         return "TVSerie \""+this.title +"\" aired on the television for the first time in "+this.utgivelsesdato + ". This program has a basic data of "+ this.episoder.size() + " random episodes across different seasons in "+this.title+".\n";
     }
@@ -169,9 +184,7 @@ public class TVSerie implements Comparable<TVSerie> {
 
     }
 
-    //oppgave2.7 - hente Roller i alle episoder
-    //This method returns Roller objects inside all Episode objects
-    //using similar strategy as in hentEpisoderISesong(), where emptry ArrayList is created, add items to and then finally return it from method
+
     public ArrayList<Rolle> hentRollebesetning(){
 
         //empty array to roller from episodes
