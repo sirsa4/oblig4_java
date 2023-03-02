@@ -109,22 +109,4 @@ public class EpisodeController {
 
     }
 
-    //oppgave 2.8 - sort episodes by episode number
-    public void sortEpisodenr(Context context) {
-        //Tvserie name
-        String serie = context.pathParam("tvserie-id");
-
-        //season number
-        int seasonNumber = Integer.parseInt(context.pathParam("sesong-id"));
-
-        //sort query parameter
-        String sortEpisodeNrQuery = context.queryParam("sorting");
-        int id = Integer.parseInt(sortEpisodeNrQuery);
-
-
-        ArrayList<Episode> episodesByNumber = episodeRepo.sortEpisodesByNumber(serie,seasonNumber,id);
-
-        context.json(episodesByNumber);
-
-    }
 }//end of class

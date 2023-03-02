@@ -125,29 +125,5 @@ public class TvSerieDataRepository implements TvSerieRepository {
         return null;
     }
 
-    //oppgave 2.9 - sort episodes by episode number
-    @Override
-    public ArrayList<Episode> sortEpisodesByNumber(String serie, int seasonNumber, int seasonNumber1) {
 
-
-
-        //get episodes in correct season using the method from previous oppgave to get episodes in a season.
-        ArrayList<Episode> episodesToSort = getEpisodesInSeason(serie,seasonNumber);
-
-
-        //sort episodes with anon class
-        episodesToSort.sort(new Comparator<Episode>() {
-            @Override
-            public int compare(Episode ep1, Episode ep2) {
-               // return ep1.getEpisodeNr() - ep2.getEpisodeNr();
-                System.out.println(ep1.getTitle());
-                System.out.println("it is working");
-                return Integer.compare(ep2.getEpisodeNr(), ep1.getEpisodeNr());
-            }
-        });
-
-
-
-        return episodesToSort;
-    }
 }

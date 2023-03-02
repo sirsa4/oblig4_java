@@ -21,5 +21,5 @@ public interface TvSerieRepository {
     public Episode getEpisodeInSeason(String tvserie, int season, int episodeNr);
 
 
-    ArrayList<Episode> sortEpisodesByNumber(String serie, int seasonNumber, int seasonNumber1);
+
 }//end of interface
