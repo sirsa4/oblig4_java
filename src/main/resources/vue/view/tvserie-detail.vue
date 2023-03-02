@@ -38,7 +38,7 @@ Episode:
 
         <p v-if="!tvserie.antallSesonger" class="error">TvSerie må ha get-metode for "antallSesonger"</p>
         <div v-for="nr in tvserie.antallSesonger" :key="sesongNr">
-            <a v-if="nr == sesongNr" :href="`/tvserie/${tvserie.tittel}/sesong/${nr}`" class="active">
+            <a v-if="nr == sesongNr" :href="`/tvserie/${tvserie.title}/sesong/${nr}`" class="active">
               <li>Sesong {{nr}}</li>
             </a>
             <a v-else :href="`/tvserie/${tvserie.title}/sesong/${nr}`">

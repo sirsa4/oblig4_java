@@ -73,7 +73,6 @@ public class Application {
         app.get("/api/tvserie/{tvserie-id}/sesong/{sesong-id}", new Handler() {
             @Override
             public void handle(@NotNull Context context) throws Exception {
-
                 episodeController.getEpisodes(context);
             }
         });
@@ -90,6 +89,8 @@ public class Application {
         //Vue path for single specific episode
         //This path uses the API path above this.
         app.get("tvserie/{tvserie-id}/sesong/{sesong-nr}/episode/{episode-nr}", new VueComponent("episode-detail"));
+
+
 
 
     }//end of main method

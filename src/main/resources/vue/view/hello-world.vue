@@ -4,9 +4,11 @@
     <a href="/users/">View user overview</a>
   </div>
 </template>
+
 <script>
 app.component("hello-world", {template: "#hello-world"});
 </script>
+
 <style>
 .hello-world {
   color: goldenrod;

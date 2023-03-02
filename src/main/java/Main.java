@@ -54,7 +54,8 @@ public class Main {
                 return ep1.compareTo(ep2);
             }
         });
-        Collections.sort(toBeSortedEpisodes);
+
+        //Collections.sort(toBeSortedEpisodes);
         System.out.println(toBeSortedEpisodes);
 
 
