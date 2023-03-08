@@ -85,7 +85,7 @@ app.component("tvserie-detail", {
     tvserie: null,
     episoder: [],
     sesongNr: "1",
-    sortering: "episodenr",
+    sortering: "",
   }),
   created() {
     const tvserieId = this.$javalin.pathParams["tvserie-id"];

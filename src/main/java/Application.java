@@ -23,12 +23,7 @@ public class Application {
         // get() takes annon class created from an interface as 2nd argument
         //we can override the handle() in Handler interface to send response to client
         //here we are sending simple "Hello World!" text as response to request to home page.
-        app.get("/", new Handler() {
-            @Override
-            public void handle(@NotNull Context context) throws Exception {
-                context.result("Hello World!");
-            }
-        });
+        app.get("/", new VueComponent("hello-world"));
 
         //oppgave 2.6 - vue component paths.
         //This connects front-end(vue) with the backend(javalin here).
@@ -83,6 +78,8 @@ public class Application {
             public void handle(@NotNull Context context) throws Exception {
 
                 episodeController.getSingleEpisode(context);
+
+
             }
         });
 

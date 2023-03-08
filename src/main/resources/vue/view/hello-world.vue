@@ -1,7 +1,7 @@
 <template id="hello-world">
   <div>
     <h1 class="hello-world">Hello, World!</h1>
-    <a href="/users/">View user overview</a>
+    <a href="/tvserie/">View tvseries overview</a>
   </div>
 </template>
 

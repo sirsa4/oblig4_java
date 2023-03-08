@@ -109,6 +109,7 @@ public class TvSerieDataRepository implements TvSerieRepository {
         //first correct TVSerie
         TVSerie correctSerie = getSingleTVSerie(tvserie);
 
+
         //get correct episodes from specific season number of the series
         ArrayList<Episode> correctSeasonEpisodes = correctSerie.hentEpisoderISesong(season);
 

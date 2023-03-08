@@ -20,7 +20,7 @@ TvSerie:
 
                       <img v-if="tvserie?.bildeUrl" class="cover-image" v-bind:src="tvserie.bildeUrl">
                       <img v-else class="cover-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Stranger_Things_Rasmiy_posteri.jpg/405px-Stranger_Things_Rasmiy_posteri.jpg">
-                    </div>
+                    </div>he simpsons/sesong/3?sortering=spilletid
                 </a>
             </li>
         </ul>

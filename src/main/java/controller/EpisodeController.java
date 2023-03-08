@@ -33,6 +33,7 @@ public class EpisodeController {
         //resource for sorting: compartor we had in lecture, tested small project to sort in chatGPT and also got help from lecturer that sorting should be done in this method.
         //with queryParam(), we can get sorting type and use in if-statement which does the actual sorting before the episode list is returned
         String sortQuery = context.queryParam("sortering");
+        System.out.println(sortQuery);
 
 
         //with if-statement to sort episodes by episode number
@@ -40,7 +41,7 @@ public class EpisodeController {
         //Here we are using anon class Comparator of type Episode. The compare() method can be overriden to change what episode list is being sorted by
         if(sortQuery.equals("episodenr")){
 
-            System.out.println("episodenr sort : "+sortQuery);
+         //   System.out.println("episodenr sort : "+sortQuery);
             episodesInSeason.sort(new Comparator<Episode>() {
                 @Override
                 public int compare(Episode ep1, Episode ep2) {
@@ -103,6 +104,7 @@ public class EpisodeController {
 
         //use the method in TVSerieDataRepository class to get a single episode
         Episode singleEpisode = episodeRepo.getEpisodeInSeason(serie,seasonNumber,episodeNumber);
+
 
         //send JSON response to user which is matches the browser url
         context.json(singleEpisode);
